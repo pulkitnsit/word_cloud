@@ -134,7 +134,7 @@ class WordCloud:
         word_cloud_items = []
 
         html = [
-            "<div align='center' style='width:100%'><div align='center' style='text-align:justify; border-radius: 25px;background: #fff7f7;overflow: auto; width:500px !important; padding:20px; '; text-align: center; word-wrap: break-word;>"]
+            "<div style='text-align:justify; border-radius: 25px;background: #fff7f7;overflow: auto; padding:20px; text-align: center; word-wrap: break-word;>"]
         for idx, row in text_df.iterrows():
             word = row.words.replace(" ", "-")
             scale = self.get_font_size(row.score)
@@ -147,7 +147,7 @@ class WordCloud:
         random.shuffle(word_cloud_items)
 
         html.extend(word_cloud_items)
-        html.append("</div></div>")
+        html.append("</div>")
         return ''.join(html)
 
     def sort_coo(self, coo_matrix):
